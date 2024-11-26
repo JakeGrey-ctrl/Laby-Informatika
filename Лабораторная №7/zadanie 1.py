@@ -29,17 +29,17 @@ while input_invalid:
         rows_count = input("Попробуйте ввести количество столбцов ещё раз: ")
 ##Конец проверки ввода пользователя
 
-##Генерация массива
+##Генерация списка
 matrix = [[randint(-10, 10) for i in range(rows_count)] for j in range(columns_count)] ##версия с генератором
 ##matrix = []
 ##for i in range(columns_count): ##версия без использования генератора
 ##    column = []
 ##    for j in range(rows_count):
-##        row.append(randint(-10, 10))
+##        column.append(randint(-10, 10))
 ##    matrix.append(column)
 
-##Вывод входного массива (начало)
-print("Входной массив: ")
+##Вывод входного списка (начало)
+print("Входной список: ")
 for column in matrix:
     for i in column:
         if 0 <= i <= 9:
@@ -47,7 +47,7 @@ for column in matrix:
         else:
             print(i, end = " ")
     print()
-##Конец вывода входного массива
+##Конец вывода входного списка
 
 ##Пользователь вводит режим и шаг сдвига
 mode = input("Введите режим сдвига (вниз или вправо): ")
@@ -84,8 +84,8 @@ else:
 matrix = matrix1
 ##Конец работы алгоритма
 
-##Вывод получившегося массива (начало)
-print("Получившийся массив: ")
+##Вывод получившегося списка (начало)
+print("Получившийся список: ")
 for column in matrix:
     for i in column:
         if 0 <= i <= 9:
@@ -93,4 +93,4 @@ for column in matrix:
         else:
             print(i, end = " ")
     print()
-##Конец вывода получившегося массива
+##Конец вывода получившегося списка
