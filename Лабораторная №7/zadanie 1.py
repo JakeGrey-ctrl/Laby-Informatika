@@ -27,20 +27,20 @@ while input_invalid:
     except ValueError:
         print("Вы должны ввести целое положительное число!")
         rows_count = input("Попробуйте ввести количество столбцов ещё раз: ")
+##Конец проверки ввода пользователя
 
 matrix = [[randint(-10, 10) for i in range(rows_count)] for j in range(columns_count)] ##версия с генератором
-##Конец проверки ввода пользователя
 ##matrix = []
 ##for i in range(columns_count): ##версия без использования генератора
-##    row = []
+##    column = []
 ##    for j in range(rows_count):
 ##        row.append(randint(-10, 10))
-##    matrix.append(row)
+##    matrix.append(column)
 
 ##Вывод входного массива (начало)
 print("Входной массив: ")
-for row in matrix:
-    for i in row:
+for column in matrix:
+    for i in column:
         if 0 <= i <= 9:
             print(" " + str(i), end = " ") ##сделано в целях грамотного отображения
         else:
@@ -70,14 +70,23 @@ while input_invalid:
 ##Начало работы алгоритма
 matrix1 = []
 if mode == "вниз":
-    for i in range(len(matrix)):
-        matrix1.append(matrix[(i + n) % columns_count]) ##%columns_count, чтобы работало зацикливание
-
+    for i in range(columns_count):
+        matrix1.append(matrix[(i - n) % columns_count]) ##%columns_count, чтобы работало зацикливание.
+        ##Знак "-", так как мы движем матрицу визуально вниз
+        ##При отрицательном шаге зацикливание также работает, но в обратную сторону (вверх)
+else:
+    for i in range(columns_count):
+        column = []
+        for j in range(rows_count):
+            column.append(matrix[i][(j - n) % rows_count]) 
+        matrix1.append(column)
 matrix = matrix1
+##Конец работы алгоритма
+
 ##Вывод получившегося массива (начало)
 print("Получившийся массив: ")
-for row in matrix:
-    for i in row:
+for column in matrix:
+    for i in column:
         if 0 <= i <= 9:
             print(" " + str(i), end = " ") ##сделано в целях грамотного отображения
         else:
