@@ -29,6 +29,7 @@ while input_invalid:
         rows_count = input("Попробуйте ввести количество столбцов ещё раз: ")
 ##Конец проверки ввода пользователя
 
+##Генерация массива
 matrix = [[randint(-10, 10) for i in range(rows_count)] for j in range(columns_count)] ##версия с генератором
 ##matrix = []
 ##for i in range(columns_count): ##версия без использования генератора
