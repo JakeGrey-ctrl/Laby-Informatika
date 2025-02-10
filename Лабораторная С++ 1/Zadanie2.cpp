@@ -1,10 +1,12 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-int main(int argc, char* argv[])
+int main1()
 {
 	setlocale(LC_ALL, "Russian");
+	string Sx;
 	double x, y;
 	bool incorrect_input = true;
 	cout << "¬ведите x: ";
