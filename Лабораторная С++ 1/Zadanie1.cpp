@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include <limits>
+#include <string>
 
 using namespace std;
 
@@ -7,20 +7,36 @@ int main(int argc, char* argv[])
 {
 	setlocale(LC_ALL, "Russian");
 	double x, y, z;
+	string Sx, Sy;
+	bool incorrect_input = true;
 	cout << "Введите x: ";
-	while (!(cin >> x)) //проверка ввода пользователя
+	while (incorrect_input) //проверка ввода пользователя
 	{
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		cout << "Неверный ввод! Попробуйте ещё раз ввести x: ";
+		try
+		{
+			cin >> Sx;
+			x = stod(Sx);
+			incorrect_input = false;
+		}
+		catch (invalid_argument)
+		{
+			cout << "Неверный ввод! Попробуйте ещё раз ввести x: ";
+		}
 	}
-	cin.clear();
+	incorrect_input = true;
 	cout << "Введите y: ";
-	while (!(cin >> y)) //проверка ввода пользователя
+	while (incorrect_input) //проверка ввода пользователя
 	{
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		cout << "Неверный ввод! Попробуйте ещё раз ввести y: ";
+		try
+		{
+			cin >> Sy;
+			y = stod(Sy);
+			incorrect_input = false;
+		}
+		catch (invalid_argument)
+		{
+			cout << "Неверный ввод! Попробуйте ещё раз ввести y: ";
+		}
 	}
 	z = sqrt(abs(pow(x, y) - cos(y)));
 	cout << "Значение выражения: " << z;
