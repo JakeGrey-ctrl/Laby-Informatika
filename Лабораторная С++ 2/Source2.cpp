@@ -18,5 +18,5 @@ void main1()
 		cout << value << endl;
 	}
 	for (unsigned short i = 0; i < 10; i += 2) sum += *(p + i);
-	cout << "Сумма чётных элементов: " << sum;
+	cout << "Сумма элементов с нечётными номерами: " << sum;
 }

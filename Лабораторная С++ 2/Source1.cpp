@@ -6,10 +6,9 @@ using namespace std;
 void main()
 {
 	setlocale(LC_ALL, "Russian");
-	unsigned short A[10], G[10], F[10];
+	unsigned short A[10], G[10], F[10]; //числа диапазона 0-65535
 	float sr_algebra = 0;
 	unsigned short counter = 0; //счётчик учеников, не имеющих 2
-	unsigned short i = 0; //число в диапазоне 0-65535 (меньше типа не нашёл)
 	unsigned short *pA = A;
 	unsigned short *pG = G;
 	unsigned short *pF = F;
