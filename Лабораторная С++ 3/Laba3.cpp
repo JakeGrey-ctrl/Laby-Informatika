@@ -47,9 +47,10 @@ int main()
         }
         if (!(found_last) && array1[n - i - 1] < 0)
         {
-            last_negat_ind = n - i - 1;
+            last_negat_ind = i;
             found_last = true;
         }
+
         if (found_first && found_last) break;
     }
     /*В случае ниже можно не рассматривать в условии found_last, т. к. подразумевается, что если найдено первое,
@@ -79,6 +80,8 @@ int main()
     delete[] array1;
     array1 = nullptr;
     //Вывод массива. В данном случае j выступает как длина массива array2
+    //заполнение нулями ниже
+    for (unsigned int i = j; i < n; i++) array2[i] = 0;
     cout << "Изменённый массив: ";
     for (unsigned int i = 0; i < j; i++)
     {
