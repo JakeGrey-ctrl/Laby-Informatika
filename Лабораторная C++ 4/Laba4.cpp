@@ -1,18 +1,20 @@
 ﻿#include <iostream>
 #include <string>
+#include <windows.h>
 
 using namespace std;
 
-int main1()
+int main()
 {
-    setlocale(LC_ALL, "Russian");
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
     string text;
     string symbol;
     cout << "Введите строку: ";
     getline(cin, text);
     while (text.empty())
     {
-        cin.ignore(18446744073709551615, '\n'); //МАКС ДЛИНА СТРОКИ
+        cin.ignore(1, '\n');
         cout << "Пустая строка! Попробуйте ещё раз: ";
         getline(cin, text);
     }
@@ -20,7 +22,7 @@ int main1()
     getline(cin, symbol);
     while (symbol.length() != 1)
     {
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin.ignore(18446744073709551615, '\n'); //МАКС ДЛИНА СТРОКИ
         cout << "Вы ввели не символ. Попробуйте ещё раз: ";
         getline(cin, symbol);
     }
