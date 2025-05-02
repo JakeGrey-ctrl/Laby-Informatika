@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int main3()
+int main1()
 {
 	srand(time(NULL));
 	SetConsoleCP(1251);

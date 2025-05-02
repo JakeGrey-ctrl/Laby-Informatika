@@ -74,7 +74,6 @@ vector <string> input_data_from_file(string filename)
 	ifstream fin(filename);
 	if (fin.fail())
 	{
-		cout << endl;
 		fin.clear();
 		fin.close();
 		return input_data_from_file(input_filename("Ошибка при открытии несуществующего файла! Пожалуйста, задайте корректное имя существующего файла: "));
@@ -86,6 +85,11 @@ vector <string> input_data_from_file(string filename)
 		data.emplace_back(line);
 	}
 	fin.close();
+	if (data.size() == 1 && data[0] == "")
+	{
+		fin.clear();
+		return input_data_from_file(input_filename("Файл пуст. Пожалуйста, задайте имя непустого файла: "));
+	}
 	return data;
 }
 
